@@ -16,7 +16,7 @@ All these options are not set in stone and can be changed at any time.
 
 Once this is done we need to train chat gpt on the source data. 
 
-To do this we leverage [Datahub](https://github.com/datahub-project/datahub) (TBD.. should I create my own schema inferer?) by converting the datahub profile into a datahub integration and scraping the source system for it's metadata. We then generate a [DBT sources yaml](https://docs.getdbt.com/docs/build/sources) that we point chat-gpt to and allow it to learn the schema.
+To do this we leverage [Datahub](https://github.com/datahub-project/datahub) (TBD.. should I create my own schema inferer?) by converting the DBT profile into a [datahub integration recipe](https://datahubproject.io/docs/metadata-ingestion/)  and scraping the source system for it's metadata. It is important to note that this will be a one time thing and need to be retriggered if the schema changes. There will be a datahub ui available that allows for searching of the schema.  We then generate a [DBT sources yaml](https://docs.getdbt.com/docs/build/sources) that we point chat-gpt to and allow it to learn the schema.
 
 - This will leverage the ability of datahub to identify primary and foreign keys in some systems as well providing all the information it can garner for chat gpt to learn about the schema or metadata of our data to build the sql
 
