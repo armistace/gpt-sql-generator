@@ -1,0 +1,5 @@
+dbt-duckdb
+dbt-core
+duckdb
+flask
+openai
