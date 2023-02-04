@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  intalgo:
+    build: .
+    volumes:
+     - $HOME/intalgo/dev/intalgo-app/data:/data
+

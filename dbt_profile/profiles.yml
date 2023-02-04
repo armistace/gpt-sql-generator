@@ -1,0 +1,6 @@
+intalgo:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '/data/intalgo.duckdb'
