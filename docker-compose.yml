@@ -2,7 +2,11 @@ version: '2'
 
 services:
   intalgo:
+    container_name: intalgo
     build: .
     volumes:
-     - $HOME/intalgo/dev/intalgo-app/data:/data
+      - $HOME/intalgo/dev/intalgo-app/data:/data
+    ports:
+      -  "5000:5000"
+    restart: "unless-stopped"
 
