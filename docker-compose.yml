@@ -1,12 +1,17 @@
 version: '2'
 
 services:
-  intalgo:
-    container_name: intalgo
-    build: .
+  intalgo-dbt:
+    container_name: intalgo-dbt
+    build:
+      dockerfile: dbt.Dockerfile 
     volumes:
       - $HOME/intalgo/dev/intalgo-app/data:/data
+  
+  intalgo-web:
+    container_name: intalgo-web
+    build:
+      dockerfile: flask.Dockerfile 
     ports:
-      -  "5000:5000"
+      - "80:80"
     restart: "unless-stopped"
-

@@ -6,12 +6,10 @@ WORKDIR /intalgo
 
 COPY requirements.txt .
 
-COPY entrypoint.sh .
-
 ADD src src/
 
 ADD data /data
 
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["/bin/bash", "/intalgo/entrypoint.sh"]
+ENTRYPOINT ["dbt", "test", "--project-dir", "src/dbt/intalgo/"]
