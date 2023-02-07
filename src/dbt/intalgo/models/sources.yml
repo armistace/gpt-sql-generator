@@ -1,0 +1,43 @@
+
+version: 2
+
+sources:
+  - name: intalgo
+    schema: main
+    tables: 
+      - name: ORGS
+        description: "Intalgo Example Org Data"
+        columns:
+          - name: Index
+            description: "The primary key for this table"
+            tests:
+              - unique
+              - not_null
+          - name: "Organsiation ID"
+            description: "the Organisation ID"
+          - name: Name
+            description: "The Name of the organisation"
+          - name: Website
+          - name: Country
+          - name: Description
+          - name: Founded
+          - name: Founded
+          - name: Industry
+          - name: "Number of employees" 
+
+      - name: PEEPS
+        description: "Intalgo Example people data"
+        columns:
+          - name: Index
+            description: "The primary key for this table"
+            tests:
+              - unique
+              - not_null
+          - name: "User ID"
+          - name: "First Name"
+          - name: "Last Name"
+          - name: Sex
+          - name: Email
+          - name: Phone
+          - name: "Date of birth"
+          - name: "Job Title"

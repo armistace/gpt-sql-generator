@@ -3,3 +3,4 @@ dbt-core
 duckdb
 flask
 openai
+docker
