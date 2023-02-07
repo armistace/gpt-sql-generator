@@ -14,12 +14,20 @@ logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 
 @app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/run')
+def run_full_dbt():
+    dbt_run = dbt.docker_dbt()
+    output = dbt_run.run_full_dbt()
+    log.info(output)
+    return render_template('logs.html', logs=output)
+
+@app.route('/test')
 def run_dbt_test():
     dbt_test = dbt.docker_dbt()
-    cont_logs = dbt_test.run_dbt_test()
-    #docker returns a byte array this maps it to make it readable
-    output = Markup("<br>".join(re.split(r'(?:\r\n|\r|\n)', escape(''.join(map(chr, cont_logs))))))
-
+    output = dbt_test.run_dbt_test()
     log.info(output)
     return render_template('logs.html', logs=output)
 
