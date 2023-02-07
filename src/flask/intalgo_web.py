@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def run_dbt_test():
     dbt_test = dbt.docker_dbt()
-    output = dbt_test.run_dbt_test
+    output = dbt_test.run_dbt_test()
     return output
 
 if __name__ == '__main__':
