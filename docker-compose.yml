@@ -4,6 +4,7 @@ services:
   intalgo-dbt:
     container_name: intalgo-dbt
     build:
+      context: .
       dockerfile: dbt.Dockerfile 
     volumes:
       - $HOME/intalgo/dev/intalgo-app/data:/data
@@ -11,6 +12,7 @@ services:
   intalgo-web:
     container_name: intalgo-web
     build:
+      context: .
       dockerfile: flask.Dockerfile 
     ports:
       - "80:80"
