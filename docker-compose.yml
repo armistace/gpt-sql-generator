@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: dbt.Dockerfile 
     volumes:
-      - $HOME/intalgo/dev/intalgo-app/data:/data
+      - ./data:/data
   
   intalgo-web:
     container_name: intalgo-web
