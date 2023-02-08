@@ -11,6 +11,7 @@
 
 select Country, COUNT(Index) AS COUNT_OF_ORGS
 from {{ source('intalgo', 'ORGS') }}
+GROUP BY Country
 
 /*
     Uncomment the line below to remove records with null `id` values

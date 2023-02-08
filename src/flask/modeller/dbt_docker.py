@@ -24,10 +24,10 @@ class docker_dbt:
             or to complex
             returns the logs as output by get_logs
         '''
-        container = self.docker_client.containers.get("intalgo-dbt")
-        container.start()
-        output = container.exec_run(command, detach=True)
-        container.stop()
+        log.info(f"Running Command: {command}")
+        container = self.docker_client.containers.run("intalgo-app-intalgo-dbt:latest", command, detach=True)
+        log.info("Container has run")
+        log.info(container.logs(stream=True))
         logs_string = self.get_logs(container)
         return logs_string
 
@@ -36,7 +36,11 @@ class docker_dbt:
             performs the markup magic to make the logs string return
             in a way that flask doesn't bitch at
         '''
+        log.info("Entered Get Logs")
+        logs = b""
+        for line in container.logs(stream=True):
+            logs = logs + line
         return Markup("<br>".join(re.split(r'(?:\r\n|\r|\n)', \
-                escape(''.join(map(chr, container.logs(tail=50)))))))
+                escape(''.join(map(chr, logs))))))
 
     

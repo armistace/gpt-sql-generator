@@ -3,4 +3,5 @@
 
 select 'Job Title', COUNT(Index) 
 from {{ source('intalgo', 'PEEPS') }}
+GROUP BY 'Job Title'
 
