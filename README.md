@@ -4,6 +4,13 @@ Intalgo (Integration Algorithms) is chat-gpt enable Data Modelling platform.
 
 It leverages [DBT](https://github.com/dbt-labs/dbt-core) to provide a platform agnostic modelling backend and links it to the power of chat gpt to provide a human language input that can be converted to sql
 
+## Quickstart
+Start the docker service and then execute compose_up_cmd.sh
+```
+systemctl start docker
+./compose_up_cmd.sh
+```
+
 ## The Core Architecture
 
 There are two ways to instantiate a connection. The first is to manually provide a [DBT profile](https://docs.getdbt.com/docs/get-started/connection-profiles) by adding it to the config directory of this repo when you pull and build the [DBT docker](https://github.com/dbt-labs/dbt-core/tree/main/docker)
