@@ -11,6 +11,9 @@ systemctl start docker
 ./compose_up_cmd.sh
 ```
 
+## What it currently Does
+Currently it just has two endpoint /run and /test that will test some of the DBT stuff
+
 ## The Core Architecture
 
 There are two ways to instantiate a connection. The first is to manually provide a [DBT profile](https://docs.getdbt.com/docs/get-started/connection-profiles) by adding it to the config directory of this repo when you pull and build the [DBT docker](https://github.com/dbt-labs/dbt-core/tree/main/docker)
