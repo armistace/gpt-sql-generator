@@ -2,6 +2,7 @@ import docker
 import logging
 import re
 from markupsafe import Markup, escape
+import os
 
 log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
@@ -24,8 +25,10 @@ class docker_dbt:
             or to complex
             returns the logs as output by get_logs
         '''
+        container_name = os.getenv("INTALGO_DBT_CONTAINER")
+        log.info(f"Using Container Name: {container_name}")
         log.info(f"Running Command: {command}")
-        container = self.docker_client.containers.run("intalgo-app-intalgo-dbt:latest", command, detach=True)
+        container = self.docker_client.containers.run(container_name, command, detach=True)
         log.info("Container has run")
         log.info(container.logs(stream=True))
         logs_string = self.get_logs(container)

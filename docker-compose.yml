@@ -9,6 +9,8 @@ services:
     volumes:
       - ./data:/data
       - ./src/dbt/:/intalgo/src/dbt
+    environment: 
+      - INTALGO_DBT_CONTAINER=${INTALGO_DBT_CONTAINER}
   
   intalgo-web:
     container_name: intalgo-web
@@ -21,3 +23,6 @@ services:
     volumes:
       - ./src/flask/:/intalgo/src/flask
       - "//var/run/docker.sock:/var/run/docker.sock"
+    environment: 
+      - INTALGO_DBT_CONTAINER=${INTALGO_DBT_CONTAINER}
+

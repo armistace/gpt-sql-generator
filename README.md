@@ -47,4 +47,5 @@ When you have finished creating your dbt project you can configure a deployment 
 
 [Flask](https://flask.palletsprojects.com/en/2.2.x/) is used to provide glue between the frontend and dbt and chat gpt as well as performing any backend git work to ensure the dbt project is stored and deployable
 
-
+### ENV FILE
+It seems that docker can be funny with compose and container names. You need to create a .env file and then add `INTALGO_DBT_CONTAINER={your container name}` to the file so that the name is pushed correctly
