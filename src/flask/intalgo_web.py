@@ -2,7 +2,7 @@ import modeller.dbt_docker as dbt
 from open_ai.open_ai import dbt_builder as ai_dbt
 import logging
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from markupsafe import Markup, escape
 import re
 
@@ -18,8 +18,8 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('dbt_ai', methods=["GET", "POST"])
-def get_ai_results:
+@app.route('/dbt_ai', methods=["GET", "POST"])
+def get_ai_results():
     #TODO: set up template renderer and workout how to 
     #      get the same thing ot work over nad over
     if request.method == "POST":
