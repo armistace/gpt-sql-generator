@@ -48,4 +48,11 @@ When you have finished creating your dbt project you can configure a deployment 
 [Flask](https://flask.palletsprojects.com/en/2.2.x/) is used to provide glue between the frontend and dbt and chat gpt as well as performing any backend git work to ensure the dbt project is stored and deployable
 
 ### ENV FILE
-It seems that docker can be funny with compose and container names. You need to create a .env file and then add `INTALGO_DBT_CONTAINER={your container name}` to the file so that the name is pushed correctly
+You need to create an .env file with your API key it also seems that docker can be funny with compose and container names. At this stage the .env file should look something like
+```
+INTALGO_DBT_CONTAINER={your container name}
+OPENAI_API_KEY={YOUR_OPENAI_APIKEY}
+``` 
+in theory the compose up command should grab these
+
+It may also be a good idea to just add these to your .bashrc you know, cover all basis XD

@@ -6,7 +6,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 class dbt_builder:
     def __init__(self):
-        with open ('../../dbt/intalgo/models/sources.yml', 'r') as source_file:
+        with open ('src/dbt/intalgo/models/sources.yml', 'r') as source_file:
             sources = source_file.read() 
         
         self.sources_prompt = f"Using the input dbt sources yaml of {sources} Generate a DBT compliant sql file that answers the question "
@@ -24,9 +24,9 @@ class dbt_builder:
         self.outfile = "query_" + timestamp + ".sql"
 
     def write_to_dbt(self):
-        with open (f"../../dbt/intalgo/models/ai_query/{outfile}", "a") as out_file:
+        with open (f"src/dbt/intalgo/models/ai_query/{self.outfile}", "a") as out_file:
 
             for line in self.response.choices:
     
-                self.out_file.write(line.text)
+                out_file.write(line.text)
         

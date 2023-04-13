@@ -11,7 +11,8 @@ services:
       - ./src/dbt/:/intalgo/src/dbt
     environment: 
       - INTALGO_DBT_CONTAINER=${INTALGO_DBT_CONTAINER}
-  
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+
   intalgo-web:
     container_name: intalgo-web
     build:
@@ -25,4 +26,5 @@ services:
       - "//var/run/docker.sock:/var/run/docker.sock"
     environment: 
       - INTALGO_DBT_CONTAINER=${INTALGO_DBT_CONTAINER}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
 
