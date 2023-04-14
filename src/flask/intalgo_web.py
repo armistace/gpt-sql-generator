@@ -28,7 +28,9 @@ def get_ai_results():
         ai_instance.get_query(user_query)
         ai_instance.query_openai()
         ai_instance.write_to_dbt()
-    return render_template("ai_query.html")
+        return render_template("query.html", query=ai_instance.show_query())
+    else:
+        return render_template("ai_query.html")
 
 @app.route('/run')
 def run_full_dbt():

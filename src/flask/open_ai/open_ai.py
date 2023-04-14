@@ -29,4 +29,11 @@ class dbt_builder:
             for line in self.response.choices:
     
                 out_file.write(line.text)
-        
+       
+    def show_query(self):
+        string = ""
+        f = open (f"src/dbt/intalgo/models/ai_query/{self.outfile}", "r")
+        in_file = f.readlines()
+        for line in in_file:
+            string = f"{string} {line} \n"
+        return string
