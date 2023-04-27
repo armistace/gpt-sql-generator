@@ -4,7 +4,7 @@ WORKDIR /intalgo
 
 COPY requirements.txt .
 
-ADD src src/
+#ADD src src/
 
 RUN pip install -r requirements.txt
 

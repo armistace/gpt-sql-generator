@@ -22,6 +22,7 @@ services:
       - "80:80"
     restart: "unless-stopped"
     volumes:
+      - ./src/dbt/:/intalgo/src/dbt
       - ./src/flask/:/intalgo/src/flask
       - "//var/run/docker.sock:/var/run/docker.sock"
     environment: 

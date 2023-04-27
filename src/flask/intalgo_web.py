@@ -23,7 +23,7 @@ def get_ai_results():
     #TODO: set up template renderer and workout how to 
     #      get the same thing ot work over nad over
     if request.method == "POST":
-        ai_instance = ai_dbt()
+        ai_instance = ai_dbt(log)
         user_query = request.form["query"]
         ai_instance.get_query(user_query)
         ai_instance.query_openai()

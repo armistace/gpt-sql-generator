@@ -41,3 +41,5 @@ sources:
           - name: Phone
           - name: "Date of birth"
           - name: "Job Title"
+          - name: ORGS_INDEX
+            description: "The primary key of the organisation the person belongs to"
