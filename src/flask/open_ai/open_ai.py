@@ -27,12 +27,12 @@ class dbt_builder:
         self.outfile = "query_" + timestamp + ".sql"
 
     def write_to_dbt(self):
-        with open (f"src/dbt/intalgo/models/ai_query/{self.outfile}", "a") as out_file:
+        with open (f"src/dbt/intalgo/models/ai_query/{self.outfile}", "w") as out_file:
             self.log.info(f"Output writing to {self.outfile}")
             for line in self.response.choices:
-                self.log.info(line['message']['content']) 
+                self.log.info(line['message']['content'])
                 out_file.write(line['message']['content'])
-       
+      
     def show_query(self):
         string = ""
         f = open (f"src/dbt/intalgo/models/ai_query/{self.outfile}", "r")
