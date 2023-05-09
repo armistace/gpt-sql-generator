@@ -56,3 +56,7 @@ OPENAI_API_KEY={YOUR_OPENAI_APIKEY}
 in theory the compose up command should grab these
 
 It may also be a good idea to just add these to your .bashrc you know, cover all basis XD
+
+### File Not Found Error
+_TODO: FIX THIS__
+The ai_query folder in src/dbt/intalgo/models/ needs to be created 
