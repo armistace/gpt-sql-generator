@@ -1,0 +1,14 @@
+[0m12:13:07.707079 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5955467190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f595554da90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5957272690>]}
+
+
+============================== 12:13:07.712111 | 1c739f32-a4a0-43f3-bd80-81d52fc4627e ==============================
+[0m12:13:07.712111 [info ] [MainThread]: Running with dbt=1.5.0
+[0m12:13:07.713127 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': 'dbt_profile', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'send_anonymous_usage_stats': 'True'}
+[0m12:13:07.713906 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/armistace/dev/intalgo/intalgo-app/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m12:13:07.714919 [debug] [MainThread]: Command `dbt show` failed at 12:13:07.714762 after 0.05 seconds
+[0m12:13:07.715357 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f595548e990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f595548f8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f595554d950>]}
+[0m12:13:07.715820 [debug] [MainThread]: Flushing usage events
