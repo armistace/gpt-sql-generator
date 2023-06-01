@@ -4,6 +4,7 @@ version: 2
 sources:
   - name: intalgo
     schema: main
+    database: intalgo
     tables: 
       - name: ORGS
         description: "Intalgo Example Org Data"
@@ -41,5 +42,3 @@ sources:
           - name: Phone
           - name: "Date of birth"
           - name: "Job Title"
-          - name: ORGS_INDEX
-            description: "The primary key of the organisation the person belongs to"

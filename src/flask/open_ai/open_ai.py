@@ -10,7 +10,7 @@ class dbt_builder:
         with open ('src/dbt/intalgo/models/sources.yml', 'r') as source_file:
             sources = source_file.read()
 
-        self.sources_prompt = f"Using the input dbt sources yaml of {sources} Generate a DBT compliant sql file that answers the question "
+        self.sources_prompt = f"Using the input dbt sources yaml of {sources} Generate DBT compliant sql without wrapping it triple quotes that answers the question "
         self.log = log
         self.remove_semicolon = f" just show the sql without the semi colon at the end of the query. Make sure to reference the sources correctly"
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")

@@ -1,6 +1,6 @@
 dbt-duckdb
 dbt-core
-duckdb==0.6.1
+duckdb==0.8.0
 flask
 openai
 docker
