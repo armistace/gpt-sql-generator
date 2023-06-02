@@ -6,4 +6,4 @@ openai
 docker
 pytz
 acryl-datahub[all]
-
+duckdb_engine
