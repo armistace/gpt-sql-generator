@@ -5,3 +5,5 @@ flask
 openai
 docker
 pytz
+acryl-datahub[all]
+

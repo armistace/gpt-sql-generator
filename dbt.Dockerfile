@@ -8,5 +8,7 @@ COPY requirements.txt .
 
 COPY entrypoint.sh .
 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip
+
+RUN pip --default-timeout=1000 install -r requirements.txt
 #ENTRYPOINT ./entrypoint.sh

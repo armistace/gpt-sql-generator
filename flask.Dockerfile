@@ -6,7 +6,9 @@ COPY requirements.txt .
 
 #ADD src src/
 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip
+
+RUN pip --default-timeout=1000 install -r requirements.txt
 
 ENV FLASK_ENV development
 ENV FLASK_DEBUG 1

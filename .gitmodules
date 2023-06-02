@@ -1,0 +1,3 @@
+[submodule "src/flask/datahub_dbt_sources_generator"]
+	path = src/flask/datahub_dbt_sources_generator
+	url = https://github.com/armistace/datahub_dbt_sources_generator.git
