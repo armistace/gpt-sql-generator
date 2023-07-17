@@ -1,14 +1,10 @@
-FROM python:3.10
+FROM base_image as flask
 
-WORKDIR /intalgo
+COPY dbt_profile/profiles.yml /root/.dbt/
 
 COPY requirements.txt .
 
-#ADD src src/
-
-RUN pip install --upgrade pip
-
-RUN pip --default-timeout=1000 install -r requirements.txt
+COPY entrypoint.sh .
 
 ENV FLASK_ENV development
 ENV FLASK_DEBUG 1

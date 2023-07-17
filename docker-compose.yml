@@ -90,6 +90,7 @@ services:
     - DATAHUB_TRACKING_TOPIC=DataHubUsageEvent_v1
     - ELASTIC_CLIENT_HOST=elasticsearch
     - ELASTIC_CLIENT_PORT=9200
+    - METADATA_SERVICE_AUTH_ENABLED=true
     hostname: datahub-frontend-react
     image: ${DATAHUB_FRONTEND_IMAGE:-linkedin/datahub-frontend-react}:${DATAHUB_VERSION:-head}
     ports:
@@ -126,6 +127,7 @@ services:
     - MCE_CONSUMER_ENABLED=true
     - PE_CONSUMER_ENABLED=true
     - UI_INGESTION_ENABLED=true
+    - METADATA_SERVICE_AUTH_ENABLED=true
     healthcheck:
       interval: 1s
       retries: 20
