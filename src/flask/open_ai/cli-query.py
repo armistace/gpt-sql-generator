@@ -6,6 +6,8 @@ from datetime import datetime
 openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.organization = "org-OzlolStjF4eoUeYq6meETBmQ"
 
+print(f'API KEY: {os.getenv("OPENAI_API_KEY")}')
+
 def query_openai(query, example_yaml):
     gpt_question = f"generate a yml file using the following example yaml as a reference: \n```\n{example_yaml}\n```\n replace the right keys with the following information: {query}. Only output the yaml"
     print(gpt_question)

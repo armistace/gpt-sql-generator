@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Select your Source Type</title>
+<h1>Select Source</h1>
+<h3> This is a list of sources we can auto generate based on input </h3>
+<form method="POST" action="/connect_source">
+{% for source in source_list %}
+    <input type="radio" id="{{ source }}" name="source_type" value="{{ source }}">
+    <label for="{{ source }}">{{ source }}</label><br>
+{% endfor %}
+    <input type="submit" value="Select">
+</form>

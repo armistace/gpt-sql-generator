@@ -1,5 +1,6 @@
 import modeller.dbt_docker as dbt
 from open_ai.open_ai import dbt_builder as ai_dbt
+from open_ai.get_sources import Sources_Generator as source_gen
 import logging
 
 from flask import Flask, render_template, request, session
@@ -54,7 +55,7 @@ def show_results():
     # Clean up our session storage
     session.pop('current_query', default=None)
     log.info(f"Retrieved Current Query {query}")
-    
+
     dbt_run = dbt.docker_dbt()
     output = dbt_run.show_dbt_results(query)
     log.info(output)
@@ -73,6 +74,17 @@ def run_dbt_test():
     output = dbt_test.run_dbt_test()
     log.info(output)
     return render_template('logs.html', logs=output)
+
+@app.route('/connect_source', methods=["GET", "POST"])
+def build_sources():
+    source = source_gen(log)
+    if request.method == "POST":
+        source_type = request.form["source_type"]
+        source.get_example_yaml(source_type)
+        return render_template("show_example.html", example_yaml=source.html_render_yaml())
+    else:
+        return render_template("source_list.html", source_list=source.example_list)
+
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=80)
