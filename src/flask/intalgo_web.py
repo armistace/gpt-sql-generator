@@ -12,7 +12,10 @@ import os
 log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
-
+# OK going to cheat for now
+# this should *probably* be done properly by implementing sessions similar to
+# https://stackoverflow.com/questions/17694469/flask-save-session-data-in-database-like-using-cookies
+GLOBAL_SOURCE = source_gen(log)
 
 app = Flask(__name__)
 # Set up for sessions with secret key
@@ -76,15 +79,21 @@ def run_dbt_test():
     return render_template('logs.html', logs=output)
 
 @app.route('/connect_source', methods=["GET", "POST"])
-def build_sources():
-    source = source_gen(log)
+def get_sources():
     if request.method == "POST":
         source_type = request.form["source_type"]
-        source.get_example_yaml(source_type)
-        return render_template("show_example.html", example_yaml=source.html_render_yaml())
+        GLOBAL_SOURCE.get_example_yaml(source_type)
+        return render_template("show_example.html", example_yaml=GLOBAL_SOURCE.html_render_yaml(GLOBAL_SOURCE.example_yaml))
     else:
-        return render_template("source_list.html", source_list=source.example_list)
+        return render_template("source_list.html", source_list=GLOBAL_SOURCE.example_list)
 
+@app.route('/generate_source', methods=["POST"])
+def build_sources():
+    query_request = request.form["ai_query"]
+    GLOBAL_SOURCE.set_query(query_request)
+    GLOBAL_SOURCE.query_openai()
+    GLOBAL_SOURCE.output_file()
+    return render_template("built_source.html", yaml=GLOBAL_SOURCE.html_render_yaml(GLOBAL_SOURCE.yaml))
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=80)

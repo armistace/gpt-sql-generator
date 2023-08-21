@@ -1,4 +1,9 @@
 <!doctype html>
 <title> EXAMPLE YAML </title>
 <p>{{ example_yaml }}</p>
-<p><a href='/connect_source'>RETURN</a></p>
+<h3>Using the above example please input the required information in the field below</h3>
+<form method="POST" action="/generate_source">
+    <input type="text" name="ai_query"/>
+    <input type="submit" name="action"/>
+</form>
+<p><a href='/connect_source'>RETURN TO PREVIOUS STEP</a></p>

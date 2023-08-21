@@ -18,7 +18,7 @@ class Sources_Generator:
         self.outfile = "sources_" + timestamp + ".yml"
 
     def query_openai(self):
-        gpt_question = f"generate a yml file using the following example yaml as a reference: \n```\n{example_yaml}\n```\n replace the right keys with the following information: {query}. Only output the yaml"
+        gpt_question = f"generate a yml file using the following example yaml as a reference: \n```\n{self.example_yaml}\n```\n replace the right keys with the following information: {self.query}. Only output the yaml"
         self.log.info(gpt_question)
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[
             {"role": "user", "content": gpt_question},
@@ -59,8 +59,15 @@ class Sources_Generator:
         self.log.info(yaml_file)
         self.example_yaml = yaml_file
 
-    def html_render_yaml(self):
+    def html_render_yaml(self, yaml_render):
         return Markup("<br>".join(re.split(r'(?:\r\n|\r|\n)', \
-                escape(''.join( self.example_yaml)))))
+                escape(''.join( yaml_render)))))
+
+    def output_file(self):
+        with open (f"src/datahub/{self.outfile}", "w") as out_file:
+            for line in self.response.choices:
+                self.log.info(line['message']['content'])
+                out_file.write(line['message']['content'])
+
 
 
