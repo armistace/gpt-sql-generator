@@ -1,6 +1,6 @@
-# Intalgo
+# gpt-sql-generator
 
-Intalgo (Integration Algorithms) is chat-gpt enable Data Modelling platform. 
+This container builds a chat-gpt enabled Data Modelling platform. 
 
 It leverages [DBT](https://github.com/dbt-labs/dbt-core) to provide a platform agnostic modelling backend and links it to the power of chat gpt to provide a human language input that can be converted to sql
 
