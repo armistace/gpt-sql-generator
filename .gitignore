@@ -4,3 +4,4 @@ config/*
 data/*
 .env
 src/dbt/intalgo/models/ai_query/*
+dbt_profile/examples*
