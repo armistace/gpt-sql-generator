@@ -12,7 +12,7 @@ class dbt_builder:
 
         self.sources_prompt = f"Using the input dbt sources yaml of {sources} Generate DBT compliant sql without wrapping it triple quotes that answers the question "
         self.log = log
-        self.remove_semicolon = f" just show the sql without the semi colon at the end of the query. Make sure to reference the sources correctly"
+        self.remove_semicolon = f" only show one query and only show the sql without the semi colon at the end. Make sure to reference the sources correctly"
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         self.outfile = "query_" + timestamp + ".sql"
 

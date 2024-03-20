@@ -1,0 +1,7 @@
+source:
+  type: mariadb
+  config:
+    host_port: localhost:3306
+    database: datahub
+    username: datahub
+    password: datahub

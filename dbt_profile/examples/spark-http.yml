@@ -1,0 +1,19 @@
+your_profile_name:
+  target: dev
+  outputs:
+    dev:
+      type: spark
+      method: http
+      schema: [database/schema name]
+      host: [yourorg.sparkhost.com]
+      organization: [org id]    # Azure Databricks only
+      token: [abc123]
+      cluster: [cluster id]
+      
+      # optional
+      port: [port]              # default: 443
+      user: [user]
+      connect_timeout: 60       # default 10
+      connect_retries: 5        # default 0
+      server_side_parameters:
+        "spark.driver.memory": "4g" 

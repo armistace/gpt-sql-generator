@@ -1,0 +1,12 @@
+singlestore:
+  target: dev
+  outputs:
+    dev:
+      type: singlestore
+      host: [hostname]  # optional, default localhost
+      port: [port number]  # optional, default 3306
+      user: [user]  # optional, default root
+      password: [password]  # optional, default empty
+      database: [database name]  # required
+      schema: [prefix for tables that dbt will generate]  # required
+      threads: [1 or more]  # optional, default 1

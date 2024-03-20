@@ -2,7 +2,7 @@ dbt-duckdb
 dbt-core
 duckdb==0.8.0
 flask
-openai
+openai==0.28
 docker
 pytz
 acryl-datahub[all]

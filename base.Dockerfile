@@ -4,7 +4,7 @@ WORKDIR /intalgo
 
 COPY requirements.txt .
 
-RUN apt-get update -y && apt-get upgrade -y && apt-get install -y libsasl2-dev python-dev libldap2-dev libssl-dev
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y libsasl2-dev python3 libldap2-dev libssl-dev
 
 RUN pip install --upgrade pip
 

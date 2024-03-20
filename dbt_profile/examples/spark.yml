@@ -1,0 +1,21 @@
+your_profile_name:
+  target: dev
+  outputs:
+    dev:
+      type: spark
+      method: odbc
+      driver: [path/to/driver]
+      schema: [database/schema name]
+      host: [yourorg.sparkhost.com]
+      organization: [org id]    # Azure Databricks only
+      token: [abc123]
+      
+      # one of:
+      endpoint: [endpoint id]
+      cluster: [cluster id]
+      
+      # optional
+      port: [port]              # default 443
+      user: [user]
+      server_side_parameters:
+        "spark.driver.memory": "4g" 

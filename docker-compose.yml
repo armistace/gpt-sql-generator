@@ -25,6 +25,7 @@ services:
       - ./data:/data 
       - ./src/dbt/:/intalgo/src/dbt
       - ./src/flask/:/intalgo/src/flask
+      - ./src/datahub/:/intalgo/src/datahub
       - "//var/run/docker.sock:/var/run/docker.sock"
     environment: 
       - INTALGO_DBT_CONTAINER=${INTALGO_DBT_CONTAINER}

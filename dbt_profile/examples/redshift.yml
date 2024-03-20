@@ -1,0 +1,19 @@
+company-name:
+  target: dev
+  outputs:
+    dev:
+      type: redshift
+      host: hostname.region.redshift.amazonaws.com
+      user: username
+      password: password1
+      dbname: analytics
+      schema: analytics
+      port: 5439
+
+      # Optional Redshift configs:
+      sslmode: prefer
+      role: None
+      ra3_node: true 
+      autocommit: true 
+      threads: 4
+      connect_timeout: None

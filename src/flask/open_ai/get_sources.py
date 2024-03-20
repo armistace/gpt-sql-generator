@@ -14,6 +14,7 @@ class Sources_Generator:
         self.log = log
         self.sources = self.sources_json()
         self.example_list = self.source_list()
+        self.dbt_source = '/root/.dbt/example/'
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         self.outfile = "sources_" + timestamp + ".yml"
 
@@ -26,6 +27,8 @@ class Sources_Generator:
 
         self.response = response
         self.yaml = self.response["choices"][0]["message"]["content"]
+
+        #dbt_gpt = 
 
     def set_query(self, query):
         self.query =  query
@@ -56,6 +59,7 @@ class Sources_Generator:
                         yaml = requests.get(recipe_url)
                         for line in yaml.json()["payload"]["blob"]["rawLines"]:
                             yaml_file = f"{yaml_file} \n {line}"
+                dbt_profile = f'{self.dbt_profile}/{item["name"]}.yml'
         self.log.info(yaml_file)
         self.example_yaml = yaml_file
 
